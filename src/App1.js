@@ -4,12 +4,14 @@ import Register from "./Register";
 import Home from "./Home";
 export const UserContext = createContext();
 export default function App() {
-  const [user, setUser] = useState("John");
   const [flag, setFlag] = useState(0);
+  const [user, setUser] = useState({name:"", email: "", pass:""});
+  const [users, setUsers] = useState([]);
+  
  
   return (
     <>
-      <UserContext.Provider value={{ user, setUser, flag, setFlag } }>
+      <UserContext.Provider value={{ user, setUser, flag, setFlag, users, setUsers } }>
        
         {flag==0||flag==1?<Login/>:<Home/>}
      
