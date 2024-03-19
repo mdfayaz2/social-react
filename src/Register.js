@@ -3,7 +3,12 @@ import { UserContext } from './App1'
 import './Register.css'
 
 export default function Register() {
-    const {flag,setFlag,user, setUser}=useContext(UserContext);
+    const {flag,setFlag,user, setUser,setUsers}=useContext(UserContext);
+    const newUser = () =>{
+        setUsers((prev) => [...prev, user]);
+        setFlag(() => 2);
+    }
+    
   return (
     <>
         <div className='Register-model'>
@@ -22,9 +27,24 @@ export default function Register() {
             onChange={(e) =>
               setUser((prev) => ({ ...prev, pass: e.target.value }))
             } placeholder=' Password'></input><br/><br/>
-                <button onClick={() => setFlag((prevState) => 2)}>Submit</button>
+                <button onClick={newUser}>Submit</button>
             </div>
         </div>
     </>
   )
 }
+
+// import React from 'react'
+// import  {useContext} from 'react'
+// import {UserContext} from "./App1"
+// import Home from './Home';
+
+// export default function Register() {
+//     const {flag,setFlag} = useContext(UserContext);
+//   return (
+//    <>
+//      <div>Register</div>
+//     <button onClick={() => setFlag((prevState) => 1)}>Create account</button>
+//    </>
+//   )
+// }
