@@ -1,10 +1,10 @@
 import React, { useContext,useEffect,useState } from "react";
 import {user, UserContext } from './App1'
 
-export default function Feeds() {
+export default function Albums() {
   const [data, setdata] = useState([]);
   const {user} = useContext(UserContext);
-  const url = `https://jsonplaceholder.typicode.com/posts/?userId=${user.name}`;
+  const url = `https://jsonplaceholder.typicode.com/albums/?userId=${user.name}`;
 
   const fetchData = async (url) => {
     try {
@@ -23,10 +23,9 @@ export default function Feeds() {
     <div>
     {data && data.map((elem) => 
       <div key={elem.id}>
-       <p>Id: {elem.userId}</p>  
        <p>Title: {elem.title} </p>
-        <p>Post: {elem.body}</p>
       </div>)}
     </div>
   );
 }
+
