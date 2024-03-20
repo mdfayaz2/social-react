@@ -4,7 +4,7 @@ import {user, UserContext } from './App1'
 export default function Feeds() {
   const [data, setdata] = useState([]);
   const {user} = useContext(UserContext);
-  const url = `https://jsonplaceholder.typicode.com/posts/?userId=${user.name}`;
+  const url = "https://jsonplaceholder.typicode.com/posts";
 
   const fetchData = async (url) => {
     try {

@@ -5,6 +5,7 @@ import User from "./User";
 import Albums from './Albums';
 import Posts from './Posts';
 import Todos from './Todos';
+
 import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
 
 export default function Home() {
@@ -14,12 +15,12 @@ export default function Home() {
     <div>Hi {user.name}!</div>
     <div>
       <Router>
-       <Link to="/">User</Link> | <Link to="/posts">Posts</Link>  | <Link to="/todos">Todos</Link>  | <Link to="/albums">Albums</Link>
+       <Link to="/">Feeds</Link> | <Link to="/posts">Posts</Link>  | <Link to="/todos">Todos</Link>  | <Link to="/albums">Albums</Link>
         <Routes>
-            <Route path="/" element={<User/>}></Route>
-            <Route path="/posts" index element={<Posts/>}></Route>
+            <Route path="/" element={<Feeds/>}></Route>
+            <Route path="/posts"  element={<Posts/>}></Route>
             <Route path="/albums" element={<Albums/>}></Route>
-            <Route path="/todos" index element={<Todos/>}></Route>
+            <Route path="/todos"  element={<Todos/>}></Route>
         </Routes>
       </Router>
     </div><br /> <br />

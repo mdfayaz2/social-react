@@ -1,7 +1,10 @@
-import React, { useEffect,useState } from "react";
+import React, {useContext, useEffect,useState } from "react";
+import {user, UserContext } from './App1'
+
 export default function User() {
   const [data, setdata] = useState([]);
-  const url = "https://jsonplaceholder.typicode.com/users";
+  const {user} = useContext(UserContext);
+  const url = `https://jsonplaceholder.typicode.com/users/?id=${user.name}`;
 
   const fetchData = async (url) => {
     try {

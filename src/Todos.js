@@ -22,9 +22,15 @@ export default function Todo() {
       <div>
       {data && data.map((elem) => 
         <div key={elem.id}>
-         {/* <p>Id: {elem.userId}</p>   */}
+         <p>Id: {elem.id}</p>  
          <p>Title: {elem.title} </p>
-          <p>Status: {elem.completed}</p>
+          <p>Status: 
+          {elem.completed ? (
+              <input type="checkbox" checked readOnly />
+            ) : (
+              <input type="checkbox" readOnly />
+            )}
+          </p>
         </div>)}
       </div>
     );
